@@ -31,15 +31,14 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--charcoal);font:400 16px/1.7 var(--font-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
 button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
 ::selection{background:var(--rose);color:var(--white)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
-body::after{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");}
+/* FIX 1: Eliminado el filtro de ruido (body::after) que causaba los artefactos SVG gigantes al final */
 
 .wrap{width:min(1400px,92vw);margin-inline:auto}
 .section{padding-block:clamp(5rem,10vw,9rem)}
@@ -170,13 +169,15 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
 .testi-head h2{margin-bottom:1rem}
 .testi-head p{color:var(--charcoal-2)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.testi-card{background:var(--white);padding:2.4rem 2rem;border-radius:0;position:relative;transition:transform .5s var(--ease)}
+.testi-card{background:var(--white);padding:2.4rem 2rem;border-radius:0;position:relative;transition:transform .5s var(--ease);overflow:hidden}
 .testi-card:nth-child(2){transform:translateY(30px)}
 .testi-card:hover{transform:translateY(-8px)}
 .testi-card:nth-child(2):hover{transform:translateY(20px)}
-.testi-card::before{content:"\201C";position:absolute;top:1rem;left:1.4rem;font-family:var(--font-serif);font-size:6rem;line-height:1;color:var(--blush-2);opacity:.6}
+/* FIX 2: Comillas decorativas reducidas de 6rem a 3rem para que no se vean gigantes */
+.testi-card::before{content:"\201C";position:absolute;top:.5rem;left:1rem;font-family:var(--font-serif);font-size:3rem;line-height:1;color:var(--blush-2);opacity:.7;pointer-events:none}
 .testi-stars{display:flex;gap:.3rem;margin-bottom:1.2rem}
-.testi-stars svg{width:14px;height:14px;fill:var(--gold)}
+/* FIX 3: SVGs de estrellas con tamaño fijo y flex-shrink para que no escalen */
+.testi-stars svg{width:14px;height:14px;flex-shrink:0;fill:var(--gold)}
 .testi-card p{font:400 .95rem/1.8 var(--font-sans);color:var(--charcoal-2);position:relative;z-index:1}
 .testi-card footer{margin-top:1.6rem;font:600 .7rem/1.6 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;color:var(--charcoal)}
 .testi-card footer span{display:block;font:400 .75rem/1.6 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--charcoal-2)}
@@ -187,7 +188,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
 .contact-info p{color:var(--charcoal-2);max-width:44ch;margin-bottom:2.4rem}
 .contact-details{display:grid;gap:1.6rem;margin-bottom:2.4rem}
 .contact-item{display:flex;align-items:flex-start;gap:1.2rem}
-.contact-item svg{width:20px;height:20px;fill:var(--rose);flex:none;margin-top:.3rem}
+.contact-item svg{width:20px;height:20px;flex-shrink:0;fill:var(--rose);margin-top:.3rem}
 .contact-item div h4{font:600 .7rem/1.6 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem}
 .contact-item div p{font:400 1rem/1.7 var(--font-sans);color:var(--charcoal-2)}
 .contact-item a{font:500 1.3rem/1.4 var(--font-serif);color:var(--charcoal);transition:color .3s}
@@ -203,7 +204,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--rose)}
 .contact-form .btn{width:100%;justify-content:center;margin-top:1.6rem}
 
-.footer{background:var(--charcoal);color:var(--white);padding:5rem 0 2rem}
+.footer{background:var(--charcoal);color:var(--white);padding:5rem 0 2rem;overflow:hidden}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
 .footer-brand h3{font-family:var(--font-serif);font-size:2rem;margin-bottom:.8rem}
 .footer-brand p{font:400 .9rem/1.8 var(--font-sans);color:rgba(255,255,255,.65);max-width:24ch}
@@ -215,7 +216,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
 .float-cta{position:fixed;right:2rem;bottom:2rem;z-index:85;display:flex;flex-direction:column;gap:.8rem;align-items:flex-end}
 .float-btn{display:flex;align-items:center;gap:.8rem;background:var(--rose);color:var(--white);padding:1rem 1.6rem;border-radius:0;font:600 .7rem/1.4 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;box-shadow:0 10px 30px rgba(212,165,165,.35);transition:transform .4s var(--ease),background .3s}
 .float-btn:hover{transform:translateY(-3px);background:var(--charcoal)}
-.float-btn svg{width:18px;height:18px;fill:currentColor}
+.float-btn svg{width:18px;height:18px;flex-shrink:0;fill:currentColor}
 .float-hours{background:var(--white);color:var(--charcoal);padding:.8rem 1.2rem;font:400 .75rem/1.6 var(--font-sans);box-shadow:0 8px 24px rgba(0,0,0,.12);opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;pointer-events:none}
 .float-cta:hover .float-hours{opacity:1;transform:none}
 
@@ -282,7 +283,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
     </div>
   </div>
   <div class="hero-media">
-    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&h=1600&fit=crop" alt="Interior de lujo de salón de uñas con sillas de pedicura y estaciones de manicura" fetchpriority="high" />
+    <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/6d2a39a55-742b-4fdb-a2a3-841ed6bc83983753.png" alt="Interior de lujo de salón de uñas con sillas de pedicura y estaciones de manicura" fetchpriority="high" />
   </div>
   <div class="hero-stats">
     <div class="stat"><b>4,9★</b>Google</div>
@@ -310,7 +311,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
 <section class="section about" id="about">
   <div class="wrap about-grid">
     <div class="about-img reveal">
-      <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&h=1000&fit=crop" alt="Manicurista profesional realizando manicura con precisión" />
+      <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83988977.png" alt="Manicurista profesional realizando manicura con precisión" />
     </div>
     <div class="about-content">
       <p class="editorial reveal" style="font-size:1.3rem;color:var(--rose-dark);margin-bottom:1rem">"Cada par de manos cuenta una historia"</p>
@@ -331,7 +332,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
     </div>
     <div class="services-grid">
       <article class="service-card reveal">
-        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=1000&fit=crop" alt="Diseño de uñas ovaladas con decoración elegante" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/0d2a39a55-742b-4fdb-a2a3-841ed6bc83984502.png" alt="Diseño de uñas ovaladas con decoración elegante" />
         <div class="service-info">
           <h3>Manicura completa</h3>
           <p>Limpieza, limado, cutículas, hidratación y esmaltado. Incluye masaje relajante de manos.</p>
@@ -340,7 +341,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
         </div>
       </article>
       <article class="service-card reveal" style="--d:.1s">
-        <img src="https://images.unsplash.com/photo-1610992015732-2449b0dd2b7f?w=800&h=600&fit=crop" alt="Manicura y pedicura profesional" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/6d2a39a55-742b-4fdb-a2a3-841ed6bc83983518.png" alt="Manicura y pedicura profesional" />
         <div class="service-info">
           <h3>Pedicura spa</h3>
           <p>Tratamiento completo de pies con exfoliación, hidratación profunda y esmaltado.</p>
@@ -349,7 +350,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
         </div>
       </article>
       <article class="service-card reveal" style="--d:.2s">
-        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&h=600&fit=crop" alt="Uñas acrílicas con diseño colorido" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/2d2a39a55-742b-4fdb-a2a3-841ed6bc83983250.png" alt="Uñas acrílicas con diseño colorido" />
         <div class="service-info">
           <h3>Uñas acrílicas</h3>
           <p>Esculpido o tips, limado, diseño y esmaltado. Duración 3-4 semanas.</p>
@@ -358,7 +359,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
         </div>
       </article>
       <article class="service-card reveal" style="--d:.3s">
-        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=600&fit=crop" alt="Diseño de uñas con flores y decoración 3D" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83982309.png" alt="Diseño de uñas con flores y decoración 3D" />
         <div class="service-info">
           <h3>Nail art personalizado</h3>
           <p>Diseños únicos creados para ti. Desde lo minimalista hasta lo más elaborado.</p>
@@ -378,42 +379,42 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
     </div>
     <div class="masonry">
       <div class="masonry-item reveal">
-        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=1200&fit=crop" alt="Salón de uñas de lujo con decoración minimalista" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/5d2a39a55-742b-4fdb-a2a3-841ed6bc83986827.png" alt="Salón de uñas de lujo con decoración minimalista" />
         <div class="masonry-overlay">
           <h4>El Espacio</h4>
           <span>Ambiente</span>
         </div>
       </div>
       <div class="masonry-item reveal" style="--d:.08s">
-        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&h=600&fit=crop" alt="Manicura profesional en proceso" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83988977.png" alt="Manicura profesional en proceso" />
         <div class="masonry-overlay">
           <h4>Precisión</h4>
           <span>Técnica</span>
         </div>
       </div>
       <div class="masonry-item reveal" style="--d:.16s">
-        <img src="https://images.unsplash.com/photo-1610992015732-2449b0dd2b7f?w=800&h=1200&fit=crop" alt="Diseño de uñas ovaladas con lazos y limones" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/0d2a39a55-742b-4fdb-a2a3-841ed6bc83984502.png" alt="Diseño de uñas ovaladas con lazos y limones" />
         <div class="masonry-overlay">
           <h4>Verano Fresh</h4>
           <span>Nail Art</span>
         </div>
       </div>
       <div class="masonry-item reveal" style="--d:.24s">
-        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=600&fit=crop" alt="Uñas con diseño de arcoiris y glitter" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/2d2a39a55-742b-4fdb-a2a3-841ed6bc83983250.png" alt="Uñas con diseño de arcoiris y glitter" />
         <div class="masonry-overlay">
           <h4>Rainbow Dreams</h4>
           <span>Creativo</span>
         </div>
       </div>
       <div class="masonry-item reveal" style="--d:.32s">
-        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&h=600&fit=crop" alt="Uñas con diseño floral en tonos rosas" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83982309.png" alt="Uñas con diseño floral en tonos rosas" />
         <div class="masonry-overlay">
           <h4>Flores de Primavera</h4>
           <span>3D Art</span>
         </div>
       </div>
       <div class="masonry-item reveal" style="--d:.4s">
-        <img src="https://images.unsplash.com/photo-1610992015732-2449b0dd2b7f?w=800&h=1200&fit=crop" alt="Interior de salón de uñas moderno" />
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/6d2a39a55-742b-4fdb-a2a3-841ed6bc83983753.png" alt="Interior de salón de uñas moderno" />
         <div class="masonry-overlay">
           <h4>Luxury Experience</h4>
           <span>Salón</span>
@@ -527,7 +528,7 @@ h3{font-size:clamp(1.4rem,2.8vw,2rem)}
       </div>
     </div>
     <div class="exp-image reveal" style="--d:.2s">
-      <img src="https://images.unsplash.com/photo-1610992015732-2449b0dd2b7f?w=1000&h=800&fit=crop" alt="Espacio de pedicura de lujo con sillas confortables" />
+      <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/2d2a39a55-742b-4fdb-a2a3-841ed6bc83981034.png" alt="Espacio de pedicura de lujo con sillas confortables" />
     </div>
   </div>
 </section>
