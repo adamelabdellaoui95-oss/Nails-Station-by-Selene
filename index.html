@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f5ebe0" />
+<meta name="description" content="Nails Station by Selene — Salón de uñas especializado en manicura, pedicura, uñas acrílicas y diseños personalizados. 4,9★ con más de 50 reseñas. Cita previa: 635 27 28 47." />
+<title>Nails Station by Selene — Manicura, Pedicura y Nail Art en Barcelona</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   NAILS STATION BY SELENE — Sistema de diseño InnovaRed
+   Estructura EDITORIAL/LUXURY — Layout asimétrico
+   Sector: Salón de uñas / estética
+============================================================ */
+:root{
+  --blush:#f5ebe0;
+  --blush-2:#ede0d4;
+  --rose:#d4a5a5;
+  --rose-dark:#b88a8a;
+  --gold:#c9b037;
+  --gold-light:#e5d5a5;
+  --charcoal:#2d2d2d;
+  --charcoal-2:#3d3d3d;
+  --cream:#faf8f5;
+  --white:#ffffff;
+  --font-serif:"Playfair Display",Georgia,serif;
+  --font-editorial:"Cormorant Garamond",Georgia,serif;
+  --font-sans:"Montserrat",system-ui,sans-serif;
+  --ease:cubic-bezier(.4,.0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--charcoal);font:400 16px/1.7 var(--font-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
+::selection{background:var(--rose);color:var(--white)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+body::after{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");}
+
+.wrap{width:min(1400px,92vw);margin-inline:auto}
+.section{padding-block:clamp(5rem,10vw,9rem)}
+
+/* ========== TYPOGRAPHY ========== */
+h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.1}
+h1{font-size:clamp(3rem,8vw,6.5rem);letter-spacing:-.02em}
+h2{font-size:clamp(2.2rem,5vw,4rem)}
+h3{font-size:clamp(1.4rem,2.8vw,2rem)}
+.editorial{font-family:var(--font-editorial);font-weight:400;font-style:italic}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* ========== BUTTONS ========== */
+.btn{display:inline-flex;align-items:center;gap:.8rem;padding:1.1rem 2.2rem;border-radius:0;font:500 .7rem/1.4 var(--font-sans);letter-spacing:.18em;text-transform:uppercase;transition:all .4s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .4s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn--rose{background:var(--rose);color:var(--white);border:1px solid var(--rose)}
+.btn--rose:hover{background:var(--charcoal);border-color:var(--charcoal);transform:translateY(-2px)}
+.btn--outline{background:transparent;color:var(--charcoal);border:1px solid var(--charcoal)}
+.btn--outline:hover{background:var(--charcoal);color:var(--white);transform:translateY(-2px)}
+.btn--gold{background:var(--gold);color:var(--charcoal);border:1px solid var(--gold)}
+.btn--gold:hover{background:var(--charcoal);border-color:var(--charcoal);transform:translateY(-2px)}
+
+/* ========== HEADER ========== */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 0;background:linear-gradient(to bottom,rgba(255,255,255,.95),transparent);transition:background .4s,backdrop-filter .4s}
+.header.scrolled{background:rgba(255,255,255,.98);backdrop-filter:blur(10px)}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--font-serif);font-size:1.4rem;letter-spacing:.05em}
+.brand span{display:block;font-family:var(--font-sans);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose-dark)}
+.nav-links{display:flex;gap:2.4rem;align-items:center}
+.nav-links a{font:500 .65rem/1 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;color:var(--charcoal);position:relative;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--rose-dark)}
+.nav-links a:hover::after{width:100%}
+.burger{display:none;flex-direction:column;gap:5px;padding:.6rem}
+.burger span{width:24px;height:1.5px;background:var(--charcoal);transition:transform .4s var(--ease)}
+.menu{position:fixed;inset:0;z-index:90;background:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:6rem 8vw 3rem;transform:translateY(-102%);transition:transform .6s var(--ease);visibility:hidden}
+.menu.open{transform:none;visibility:visible}
+.menu a{font-family:var(--font-serif);font-size:clamp(2rem,7vw,3.4rem);padding:.6rem 0;border-bottom:1px solid var(--blush-2);opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.menu.open a{opacity:1;transform:none}
+.menu a:nth-child(1){transition-delay:.1s}.menu a:nth-child(2){transition-delay:.18s}.menu a:nth-child(3){transition-delay:.26s}.menu a:nth-child(4){transition-delay:.34s}.menu a:nth-child(5){transition-delay:.42s}.menu a:nth-child(6){transition-delay:.5s}
+
+/* ========== HERO VERTICAL ========== */
+.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1.2fr;position:relative;overflow:hidden;background:var(--blush)}
+.hero-media{position:relative;overflow:hidden}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(245,235,224,.4),transparent)}
+.hero-content{display:flex;flex-direction:column;justify-content:center;padding:clamp(3rem,6vw,6rem) clamp(2rem,5vw,5rem) 4rem 0}
+.hero-eyebrow{font:500 .7rem/1.6 var(--font-sans);letter-spacing:.3em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:1.8rem}
+.hero h1{margin-bottom:1.6rem;max-width:14ch}
+.hero h1 .italic{font-style:italic;font-family:var(--font-editorial)}
+.hero-lead{font-family:var(--font-editorial);font-size:clamp(1.1rem,1.6vw,1.4rem);color:var(--charcoal-2);max-width:42ch;margin-bottom:2.4rem;line-height:1.6}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-stats{position:absolute;bottom:3rem;right:3rem;display:flex;gap:3rem;z-index:2}
+.stat{font-family:var(--font-editorial);font-size:1.1rem}
+.stat b{display:block;font-family:var(--font-serif);font-size:2.4rem;color:var(--rose-dark)}
+
+/* ========== MARQUEE ========== */
+.marquee{background:var(--charcoal);color:var(--white);overflow:hidden;padding:1.4rem 0}
+.marquee-track{display:flex;width:max-content;animation:marquee 40s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-item{display:flex;align-items:center;gap:1.2rem;padding:0 2rem;font:500 .75rem/1 var(--font-sans);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.marquee-item::after{content:"✦";font-size:.6rem;opacity:.5;margin-left:1.2rem}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ========== ABOUT SELENE ========== */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+.about-img{position:relative}
+.about-img img{width:100%;height:70vh;object-fit:cover}
+.about-img::before{content:"";position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;border:1px solid var(--gold);z-index:-1}
+.about-content h2{margin-bottom:1.6rem;max-width:16ch}
+.about-content p{color:var(--charcoal-2);max-width:48ch;margin-bottom:1.2rem;font-size:1.05rem}
+.about-signature{margin-top:2.4rem;font-family:var(--font-editorial);font-size:1.8rem;font-style:italic;color:var(--rose-dark)}
+
+/* ========== SERVICES ASYMMETRIC GRID ========== */
+.services{background:var(--blush)}
+.services-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:4rem}
+.services-head h2{max-width:14ch}
+.services-head p{max-width:36ch;color:var(--charcoal-2)}
+.services-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem}
+.service-card{position:relative;background:var(--white);overflow:hidden;transition:transform .5s var(--ease)}
+.service-card:nth-child(1){grid-column:1/7;grid-row:1/3}.service-card:nth-child(1) img{height:100%}
+.service-card:nth-child(2){grid-column:7/13;grid-row:1/2}
+.service-card:nth-child(3){grid-column:7/10;grid-row:2/3}
+.service-card:nth-child(4){grid-column:10/13;grid-row:2/3}
+.service-card img{width:100%;height:320px;object-fit:cover;transition:transform .8s var(--ease)}
+.service-card:hover img{transform:scale(1.08)}
+.service-info{padding:2rem}
+.service-info h3{margin-bottom:.8rem;font-family:var(--font-serif)}
+.service-info p{color:var(--charcoal-2);font-size:.95rem;margin-bottom:1.2rem}
+.service-price{font:600 1.1rem/1 var(--font-sans);color:var(--rose-dark)}
+.service-duration{font:400 .7rem/1.6 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;color:var(--charcoal-2);display:block;margin-top:.4rem}
+
+/* ========== LOOKBOOK MASONRY ========== */
+.lookbook{background:var(--cream)}
+.lookbook-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:3rem}
+.lookbook-head h2{max-width:14ch}
+.lookbook-head p{max-width:36ch;color:var(--charcoal-2)}
+.masonry{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:320px;gap:1.4rem}
+.masonry-item{position:relative;overflow:hidden;background:var(--blush)}
+.masonry-item:nth-child(1){grid-row:span 2}.masonry-item:nth-child(2){grid-row:span 1}.masonry-item:nth-child(3){grid-row:span 2}.masonry-item:nth-child(4){grid-row:span 1}.masonry-item:nth-child(5){grid-row:span 1}.masonry-item:nth-child(6){grid-row:span 2}
+.masonry-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.masonry-item:hover img{transform:scale(1.1)}
+.masonry-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(45,45,45,.85),transparent);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;opacity:0;transition:opacity .5s var(--ease)}
+.masonry-item:hover .masonry-overlay{opacity:1}
+.masonry-overlay h4{font-family:var(--font-serif);font-size:1.4rem;color:var(--white);margin-bottom:.4rem}
+.masonry-overlay span{font:400 .7rem/1.6 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;color:var(--gold-light)}
+
+/* ========== PRICING ========== */
+.pricing{background:var(--white)}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.pricing-column h3{font-family:var(--font-serif);font-size:1.8rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:2px solid var(--blush-2)}
+.pricing-item{display:flex;justify-content:space-between;align-items:baseline;padding:1.4rem 0;border-bottom:1px solid var(--blush);transition:background .3s}
+.pricing-item:hover{background:var(--blush);padding-left:1rem;padding-right:1rem;margin:0 -1rem}
+.pricing-item-info h4{font:500 1.05rem/1.4 var(--font-sans);margin-bottom:.4rem}
+.pricing-item-info p{font:400 .85rem/1.6 var(--font-sans);color:var(--charcoal-2)}
+.pricing-item-price{font-family:var(--font-serif);font-size:1.6rem;color:var(--rose-dark);white-space:nowrap;margin-left:2rem}
+
+/* ========== EXPERIENCE ========== */
+.experience{background:var(--charcoal);color:var(--white);position:relative;overflow:hidden}
+.experience::before{content:"";position:absolute;top:-50%;right:-20%;width:80%;height:150%;background:radial-gradient(circle,var(--rose) 0%,transparent 70%);opacity:.15}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center;position:relative;z-index:1}
+.exp-content h2{margin-bottom:1.6rem;max-width:16ch}
+.exp-content p{color:rgba(255,255,255,.75);max-width:48ch;margin-bottom:2rem}
+.exp-list{display:grid;gap:1.4rem}
+.exp-item{display:flex;gap:1.2rem;align-items:flex-start}
+.exp-item svg{width:20px;height:20px;fill:var(--gold);flex:none;margin-top:.3rem}
+.exp-item div h4{font:500 1.1rem/1.4 var(--font-sans);margin-bottom:.4rem}
+.exp-item div p{font:400 .9rem/1.6 var(--font-sans);color:rgba(255,255,255,.65)}
+.exp-image{position:relative}
+.exp-image img{width:100%;height:60vh;object-fit:cover;filter:grayscale(.2) contrast(1.05)}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials{background:var(--blush)}
+.testi-head{text-align:center;max-width:60ch;margin-inline:auto;margin-bottom:4rem}
+.testi-head h2{margin-bottom:1rem}
+.testi-head p{color:var(--charcoal-2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.testi-card{background:var(--white);padding:2.4rem 2rem;border-radius:0;position:relative;transition:transform .5s var(--ease)}
+.testi-card:nth-child(2){transform:translateY(30px)}
+.testi-card:hover{transform:translateY(-8px)}
+.testi-card:nth-child(2):hover{transform:translateY(20px)}
+.testi-card::before{content:""";position:absolute;top:1rem;left:1.4rem;font-family:var(--font-serif);font-size:6rem;line-height:1;color:var(--blush-2);opacity:.6}
+.testi-stars{display:flex;gap:.3rem;margin-bottom:1.2rem}
+.testi-stars svg{width:14px;height:14px;fill:var(--gold)}
+.testi-card p{font:400 .95rem/1.8 var(--font-sans);color:var(--charcoal-2);position:relative;z-index:1}
+.testi-card footer{margin-top:1.6rem;font:600 .7rem/1.6 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;color:var(--charcoal)}
+.testi-card footer span{display:block;font:400 .75rem/1.6 var(--font-sans);letter-spacing:0;text-transform:none;color:var(--charcoal-2)}
+
+/* ========== CONTACT/CTA ========== */
+.contact{background:var(--white);padding-bottom:8rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info h2{margin-bottom:1.6rem;max-width:14ch}
+.contact-info p{color:var(--charcoal-2);max-width:44ch;margin-bottom:2.4rem}
+.contact-details{display:grid;gap:1.6rem;margin-bottom:2.4rem}
+.contact-item{display:flex;align-items:flex-start;gap:1.2rem}
+.contact-item svg{width:20px;height:20px;fill:var(--rose);flex:none;margin-top:.3rem}
+.contact-item div h4{font:600 .7rem/1.6 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem}
+.contact-item div p{font:400 1rem/1.7 var(--font-sans);color:var(--charcoal-2)}
+.contact-item a{font:500 1.3rem/1.4 var(--font-serif);color:var(--charcoal);transition:color .3s}
+.contact-item a:hover{color:var(--rose-dark)}
+.contact-form{background:var(--blush);padding:3rem;border:1px solid var(--blush-2)}
+.contact-form h3{font-family:var(--font-serif);font-size:1.8rem;margin-bottom:2rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.field{display:flex;flex-direction:column;gap:.5rem}
+.field--full{grid-column:1/-1}
+.field label{font:500 .65rem/1.6 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;color:var(--charcoal-2)}
+.field input,.field select,.field textarea{background:var(--white);border:1px solid var(--blush-2);padding:.9rem 1rem;font:400 1rem var(--font-sans);transition:border-color .3s}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--rose)}
+.contact-form .btn{width:100%;justify-content:center;margin-top:1.6rem}
+
+/* ========== FOOTER ========== */
+.footer{background:var(--charcoal);color:var(--white);padding:5rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+.footer-brand h3{font-family:var(--font-serif);font-size:2rem;margin-bottom:.8rem}
+.footer-brand p{font:400 .9rem/1.8 var(--font-sans);color:rgba(255,255,255,.65);max-width:24ch}
+.footer-col h4{font:600 .7rem/1.6 var(--font-sans);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.4rem;color:var(--gold-light)}
+.footer-col a,.footer-col p{display:block;font:400 .9rem/2 var(--font-sans);color:rgba(255,255,255,.75);transition:color .3s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);font:400 .7rem/1.8 var(--font-sans);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+/* ========== FLOAT CTA ========== */
+.float-cta{position:fixed;right:2rem;bottom:2rem;z-index:85;display:flex;flex-direction:column;gap:.8rem;align-items:flex-end}
+.float-btn{display:flex;align-items:center;gap:.8rem;background:var(--rose);color:var(--white);padding:1rem 1.6rem;border-radius:0;font:600 .7rem/1.4 var(--font-sans);letter-spacing:.15em;text-transform:uppercase;box-shadow:0 10px 30px rgba(212,165,165,.35);transition:transform .4s var(--ease),background .3s}
+.float-btn:hover{transform:translateY(-3px);background:var(--charcoal)}
+.float-btn svg{width:18px;height:18px;fill:currentColor}
+.float-hours{background:var(--white);color:var(--charcoal);padding:.8rem 1.2rem;font:400 .75rem/1.6 var(--font-sans);box-shadow:0 8px 24px rgba(0,0,0,.12);opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;pointer-events:none}
+.float-cta:hover .float-hours{opacity:1;transform:none}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width:1024px){
+  .hero{grid-template-columns:1fr}.hero-media{display:none}.hero-content{padding:8rem 2rem 4rem}.hero-stats{position:static;margin-top:3rem}
+  .about-grid,.exp-grid,.contact-grid{grid-template-columns:1fr}.about-img{display:none}
+  .services-grid{grid-template-columns:1fr}.service-card:nth-child(n){grid-column:1/-1;grid-row:auto}
+  .masonry{grid-template-columns:1fr 1fr}.masonry-item:nth-child(n){grid-row:span 1}
+  .testi-grid{grid-template-columns:1fr}.testi-card:nth-child(2){transform:none}.testi-card:nth-child(2):hover{transform:translateY(-8px)}
+  .pricing-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:768px){
+  .nav-links,.nav .btn{display:none}.burger{display:flex}
+  .masonry{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .float-btn span{display:none}.float-btn{padding:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="siteHeader">
+  <div class="wrap nav">
+    <a class="brand" href="#top">Nails Station<span>by Selene</span></a>
+    <nav class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#precios">Precios</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#testimonios">Reseñas</a>
+      <a href="#contacto" class="btn btn--rose">Reservar</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <a href="#servicios">Servicios</a>
+  <a href="#lookbook">Lookbook</a>
+  <a href="#precios">Precios</a>
+  <a href="#experiencia">Experiencia</a>
+  <a href="#testimonios">Reseñas</a>
+  <a href="#contacto">Reservar cita</a>
+</div>
+
+<main id="main">
+<!-- ========== HERO VERTICAL ========== -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal">Salón de uñas · Barcelona</p>
+    <h1 class="reveal" style="--d:.1s">Tus manos <span class="italic">merecen</span> lo mejor</h1>
+    <p class="hero-lead reveal" style="--d:.2s">En Nails Station by Selene creamos uñas que hablan de ti. Manicura, pedicura, acrílicas y diseños personalizados con la precisión y el cariño que te mereces.</p>
+    <div class="hero-ctas reveal" style="--d:.3s">
+      <a class="btn btn--rose" href="#contacto">Reservar cita
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn--outline" href="tel:+34635272847">635 27 28 47</a>
+    </div>
+  </div>
+  <div class="hero-media">
+    <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/6d2a39a55-742b-4fdb-a2a3-841ed6bc83983753.png" alt="Interior de lujo de salón de uñas con sillas de pedicura y estaciones de manicura" fetchpriority="high" />
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><b>4,9★</b>Google</div>
+    <div class="stat"><b>50+</b>Reseñas</div>
+  </div>
+</section>
+
+<!-- ========== MARQUEE ========== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item">Manicura</div>
+    <div class="marquee-item">Pedicura</div>
+    <div class="marquee-item">Uñas Acrílicas</div>
+    <div class="marquee-item">Nail Art</div>
+    <div class="marquee-item">Diseños Personalizados</div>
+    <div class="marquee-item">Tratamientos</div>
+    <div class="marquee-item">Manicura</div>
+    <div class="marquee-item">Pedicura</div>
+    <div class="marquee-item">Uñas Acrílicas</div>
+    <div class="marquee-item">Nail Art</div>
+    <div class="marquee-item">Diseños Personalizados</div>
+    <div class="marquee-item">Tratamientos</div>
+  </div>
+</div>
+
+<!-- ========== ABOUT SELENE ========== -->
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-img reveal">
+      <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83988977.png" alt="Manicurista profesional realizando manicura con precisión" />
+    </div>
+    <div class="about-content">
+      <p class="editorial reveal" style="font-size:1.3rem;color:var(--rose-dark);margin-bottom:1rem">"Cada par de manos cuenta una historia"</p>
+      <h2 class="reveal" style="--d:.1s">Hola, soy Selene</h2>
+      <p class="reveal" style="--d:.2s">Fundé Nails Station con una misión clara: ofrecer un servicio de uñas que combine técnica impecable, productos de calidad y un trato cercano que haga que cada cliente se sienta especial.</p>
+      <p class="reveal" style="--d:.3s">Me especializo en diseños personalizados que reflejan tu personalidad. Desde lo más clásico y elegante hasta las últimas tendencias en nail art, cada trabajo es una obra única.</p>
+      <p class="reveal" style="--d:.4s">Mis clientas vuelven no solo por los resultados, sino por la experiencia completa: limpieza absoluta, profesionalidad y ese mimo que hace que salir de aquí sea salir más guapa y más feliz.</p>
+      <p class="about-signature reveal" style="--d:.5s">Selene</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ASYMMETRIC ========== -->
+<section class="section services" id="servicios">
+  <div class="wrap">
+    <div class="services-head">
+      <h2 class="reveal">Servicios <span class="editorial">premium</span></h2>
+      <p class="reveal" style="--d:.1s">Cada servicio está diseñado para cuidar tus manos y pies con productos de primera calidad y técnicas actualizadas.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/0d2a39a55-742b-4fdb-a2a3-841ed6bc83984502.png" alt="Diseño de uñas ovaladas con decoración elegante" />
+        <div class="service-info">
+          <h3>Manicura completa</h3>
+          <p>Limpieza, limado, cutículas, hidratación y esmaltado. Incluye masaje relajante de manos.</p>
+          <span class="service-price">Desde 18 €</span>
+          <span class="service-duration">45 min</span>
+        </div>
+      </article>
+      <article class="service-card reveal" style="--d:.1s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/6d2a39a55-742b-4fdb-a2a3-841ed6bc83983518.png" alt="Manicura y pedicura profesional" />
+        <div class="service-info">
+          <h3>Pedicura spa</h3>
+          <p>Tratamiento completo de pies con exfoliación, hidratación profunda y esmaltado.</p>
+          <span class="service-price">Desde 25 €</span>
+          <span class="service-duration">60 min</span>
+        </div>
+      </article>
+      <article class="service-card reveal" style="--d:.2s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/2d2a39a55-742b-4fdb-a2a3-841ed6bc83983250.png" alt="Uñas acrílicas con diseño colorido" />
+        <div class="service-info">
+          <h3>Uñas acrílicas</h3>
+          <p>Esculpido o tips, limado, diseño y esmaltado. Duración 3-4 semanas.</p>
+          <span class="service-price">Desde 35 €</span>
+          <span class="service-duration">90 min</span>
+        </div>
+      </article>
+      <article class="service-card reveal" style="--d:.3s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83982309.png" alt="Diseño de uñas con flores y decoración 3D" />
+        <div class="service-info">
+          <h3>Nail art personalizado</h3>
+          <p>Diseños únicos creados para ti. Desde lo minimalista hasta lo más elaborado.</p>
+          <span class="service-price">Consultar</span>
+          <span class="service-duration">Según diseño</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LOOKBOOK MASONRY ========== -->
+<section class="section lookbook" id="lookbook">
+  <div class="wrap">
+    <div class="lookbook-head">
+      <h2 class="reveal">Lookbook <span class="editorial">2026</span></h2>
+      <p class="reveal" style="--d:.1s">Una selección de mis diseños favoritos. Cada uña es un lienzo y cada cliente, una inspiración diferente.</p>
+    </div>
+    <div class="masonry">
+      <div class="masonry-item reveal">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/5d2a39a55-742b-4fdb-a2a3-841ed6bc83986827.png" alt="Salón de uñas de lujo con decoración minimalista" />
+        <div class="masonry-overlay">
+          <h4>El Espacio</h4>
+          <span>Ambiente</span>
+        </div>
+      </div>
+      <div class="masonry-item reveal" style="--d:.08s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83988977.png" alt="Manicura profesional en proceso" />
+        <div class="masonry-overlay">
+          <h4>Precisión</h4>
+          <span>Técnica</span>
+        </div>
+      </div>
+      <div class="masonry-item reveal" style="--d:.16s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/0d2a39a55-742b-4fdb-a2a3-841ed6bc83984502.png" alt="Diseño de uñas ovaladas con lazos y limones" />
+        <div class="masonry-overlay">
+          <h4>Verano Fresh</h4>
+          <span>Nail Art</span>
+        </div>
+      </div>
+      <div class="masonry-item reveal" style="--d:.24s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/2d2a39a55-742b-4fdb-a2a3-841ed6bc83983250.png" alt="Uñas con diseño de arcoiris y glitter" />
+        <div class="masonry-overlay">
+          <h4>Rainbow Dreams</h4>
+          <span>Creativo</span>
+        </div>
+      </div>
+      <div class="masonry-item reveal" style="--d:.32s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/1d2a39a55-742b-4fdb-a2a3-841ed6bc83982309.png" alt="Uñas con diseño floral en tonos rosas" />
+        <div class="masonry-overlay">
+          <h4>Flores de Primavera</h4>
+          <span>3D Art</span>
+        </div>
+      </div>
+      <div class="masonry-item reveal" style="--d:.4s">
+        <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/6d2a39a55-742b-4fdb-a2a3-841ed6bc83983753.png" alt="Interior de salón de uñas moderno" />
+        <div class="masonry-overlay">
+          <h4>Luxury Experience</h4>
+          <span>Salón</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section class="section pricing" id="precios">
+  <div class="wrap pricing-grid">
+    <div>
+      <h3 class="reveal">Manicura</h3>
+      <div class="pricing-item reveal" style="--d:.1s">
+        <div class="pricing-item-info">
+          <h4>Manicura básica</h4>
+          <p>Limpieza, limado y esmaltado tradicional</p>
+        </div>
+        <div class="pricing-item-price">18 €</div>
+      </div>
+      <div class="pricing-item reveal" style="--d:.18s">
+        <div class="pricing-item-info">
+          <h4>Manicura semipermanente</h4>
+          <p>Esmaltado gel que dura hasta 3 semanas</p>
+        </div>
+        <div class="pricing-item-price">25 €</div>
+      </div>
+      <div class="pricing-item reveal" style="--d:.26s">
+        <div class="pricing-item-info">
+          <h4>Manicura rusa</h4>
+          <p>Técnica avanzada con torno eléctrico</p>
+        </div>
+        <div class="pricing-item-price">30 €</div>
+      </div>
+      <div class="pricing-item reveal" style="--d:.34s">
+        <div class="pricing-item-info">
+          <h4>Retirada de gel/acrílico</h4>
+          <p>Sin dañar la uña natural</p>
+        </div>
+        <div class="pricing-item-price">10 €</div>
+      </div>
+    </div>
+    <div>
+      <h3 class="reveal" style="--d:.1s">Pedicura & Extras</h3>
+      <div class="pricing-item reveal" style="--d:.18s">
+        <div class="pricing-item-info">
+          <h4>Pedicura básica</h4>
+          <p>Limpieza, limado y esmaltado</p>
+        </div>
+        <div class="pricing-item-price">25 €</div>
+      </div>
+      <div class="pricing-item reveal" style="--d:.26s">
+        <div class="pricing-item-info">
+          <h4>Pedicura spa premium</h4>
+          <p>Exfoliación, mascarilla y masaje</p>
+        </div>
+        <div class="pricing-item-price">38 €</div>
+      </div>
+      <div class="pricing-item reveal" style="--d:.34s">
+        <div class="pricing-item-info">
+          <h4>Uñas acrílicas completas</h4>
+          <p>Incluye limado y esmaltado</p>
+        </div>
+        <div class="pricing-item-price">45 €</div>
+      </div>
+      <div class="pricing-item reveal" style="--d:.42s">
+        <div class="pricing-item-info">
+          <h4>Relleno acrílicas</h4>
+          <p>Mantenimiento cada 3-4 semanas</p>
+        </div>
+        <div class="pricing-item-price">30 €</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXPERIENCE ========== -->
+<section class="section experience" id="experiencia">
+  <div class="wrap exp-grid">
+    <div class="exp-content">
+      <h2 class="reveal">Más que uñas, <span class="editorial">una experiencia</span></h2>
+      <p class="reveal" style="--d:.1s">En Nails Station no solo cuidamos tus uñas. Creamos un momento para ti, donde el tiempo se detiene y sales renovada.</p>
+      <div class="exp-list">
+        <div class="exp-item reveal" style="--d:.2s">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <div>
+            <h4>Limpieza absoluta</h4>
+            <p>Protocolos de higiene estrictos. Instrumentos esterilizados y productos desechables.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal" style="--d:.28s">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <div>
+            <h4>Productos premium</h4>
+            <p>Trabajamos con las mejores marcas del mercado para garantizar durabilidad y salud de tus uñas.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal" style="--d:.36s">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <div>
+            <h4>Atención personalizada</h4>
+            <p>Cada cliente es único. Asesoramos según tu estilo de vida, tipo de uña y preferencias.</p>
+          </div>
+        </div>
+        <div class="exp-item reveal" style="--d:.44s">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <div>
+            <h4>Ambiente relajante</h4>
+            <p>Espacio acogedor donde desconectar. Música suave, buen olor y cero estrés.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-image reveal" style="--d:.2s">
+      <img src="https://image.qwenlm.ai/public_source/89510300-7771-4661-8cc7-afe8f089edbd/2d2a39a55-742b-4fdb-a2a3-841ed6bc83981034.png" alt="Espacio de pedicura de lujo con sillas confortables" />
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="section testimonials" id="testimonios">
+  <div class="wrap">
+    <div class="testi-head">
+      <h2 class="reveal">Lo que dicen <span class="editorial">mis clientas</span></h2>
+      <p class="reveal" style="--d:.1s">4,9 estrellas con más de 50 reseñas en Google. Pero lo que más me llena son los mensajes de "me encanta" que recibo cada día.</p>
+    </div>
+    <div class="testi-grid">
+      <article class="testi-card reveal">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <p>"Selene es una artista. Le llevé una foto de Pinterest y superó mis expectativas. Además, el salón es impecable y el trato inmejorable. Ya soy clienta fija."</p>
+        <footer>Laura M.<span>Reseña de Google</span></footer>
+      </article>
+      <article class="testi-card reveal" style="--d:.1s">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <p>"Limpieza, profesionalidad y resultados perfectos. Mis uñas acrílicas duran perfectas más de 3 semanas. El precio es justo para la calidad que recibes."</p>
+        <footer>Carmen R.<span>Reseña de Google</span></footer>
+      </article>
+      <article class="testi-card reveal" style="--d:.2s">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>
+        </div>
+        <p>"Me encanta el trato cercano de Selene. Siempre me asesora sobre qué diseño me queda mejor y el resultado es espectacular. 100% recomendable."</p>
+        <footer>Andrea P.<span>Reseña de Google</span></footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <h2 class="reveal">Reserva tu <span class="editorial">cita</span></h2>
+      <p class="reveal" style="--d:.1s">Trabajo con cita previa para dedicarte el tiempo que mereces. Cuéntame qué tienes en mente y creamos algo único juntas.</p>
+      <div class="contact-details">
+        <div class="contact-item reveal" style="--d:.2s">
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+          <div>
+            <h4>Teléfono</h4>
+            <a href="tel:+34635272847">635 27 28 47</a>
+          </div>
+        </div>
+        <div class="contact-item reveal" style="--d:.28s">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Barcelona · Cita previa</p>
+          </div>
+        </div>
+        <div class="contact-item reveal" style="--d:.36s">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          <div>
+            <h4>Horario</h4>
+            <p>Lunes a Sábado · Cita previa</p>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn--rose reveal" style="--d:.44s" href="tel:+34635272847">Llamar ahora
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <form class="contact-form reveal" style="--d:.2s" id="leadForm" novalidate>
+      <h3>Solicitar cita</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label for="f-nombre">Nombre</label>
+          <input id="f-nombre" name="nombre" type="text" required placeholder="Tu nombre" />
+        </div>
+        <div class="field">
+          <label for="f-tel">Teléfono</label>
+          <input id="f-tel" name="telefono" type="tel" required placeholder="6XX XX XX XX" />
+        </div>
+        <div class="field">
+          <label for="f-servicio">Servicio</label>
+          <select id="f-servicio" name="servicio">
+            <option>Manicura</option>
+            <option>Pedicura</option>
+            <option>Uñas acrílicas</option>
+            <option>Nail art</option>
+            <option>Combinado</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-dia">Día preferido</label>
+          <input id="f-dia" name="dia" type="text" placeholder="Ej: Lunes por la tarde" />
+        </div>
+        <div class="field field--full">
+          <label for="f-msg">Cuéntame tu idea</label>
+          <textarea id="f-msg" name="mensaje" placeholder="Diseño que te gusta, tipo de uña, longitud..."></textarea>
+        </div>
+      </div>
+      <button class="btn btn--rose" type="submit" id="sendBtn">Enviar solicitud
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Nails Station</h3>
+        <p>by Selene</p>
+        <p style="margin-top:1rem">Especializada en manicura, pedicura y diseños personalizados. Cada uña es una obra de arte.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <a href="#servicios">Manicura</a>
+        <a href="#servicios">Pedicura</a>
+        <a href="#servicios">Uñas Acrílicas</a>
+        <a href="#lookbook">Nail Art</a>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#testimonios">Reseñas</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="tel:+34635272847">635 27 28 47</a>
+        <p>Barcelona</p>
+        <p>Cita previa</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Nails Station by Selene</span>
+      <span>Diseño: InnovaRed</span>
+    </div>
+  </div>
+</footer>
+
+<div class="float-cta">
+  <div class="float-hours">L-S: 10:00 - 20:00<br />Cita previa</div>
+  <a class="float-btn" href="tel:+34635272847">
+    <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
+    <span>Llamar</span>
+  </a>
+</div>
+
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  var header = document.getElementById("siteHeader");
+  function onScroll(){ header.classList.toggle("scrolled", window.scrollY > 50); }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+  
+  var burger = document.getElementById("burger");
+  var menu = document.getElementById("menu");
+  function setMenu(open){
+    burger.classList.toggle("open", open);
+    menu.classList.toggle("open", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    menu.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  burger.addEventListener("click", function(){ setMenu(!menu.classList.contains("open")); });
+  menu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") setMenu(false); });
+  
+  var targets = document.querySelectorAll(".reveal");
+  if(reduced || !("IntersectionObserver" in window)){
+    targets.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {threshold:.12, rootMargin:"0px 0px -30px 0px"});
+    targets.forEach(function(el){ io.observe(el); });
+  }
+  
+  var form = document.getElementById("leadForm");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var btn = document.getElementById("sendBtn");
+    btn.disabled = true;
+    btn.innerHTML = "Enviando...";
+    setTimeout(function(){
+      btn.innerHTML = "¡Enviado! Te llamaré";
+      btn.style.background = "var(--gold)";
+      form.reset();
+      setTimeout(function(){
+        btn.disabled = false;
+        btn.innerHTML = "Enviar solicitud <svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M5 12h13M13 6l6 6-6 6'/></svg>";
+        btn.style.background = "";
+      }, 3000);
+    }, 800);
+  });
+  
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
